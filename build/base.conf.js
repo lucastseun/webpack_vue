@@ -3,17 +3,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
+    context: path.resolve(__dirname, '../'),
     entry: {
         index: path.resolve(__dirname, '../src/main.js')
     },
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, '../dist'),
         clean: true,
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     resolve: {
         alias: {
-            vue: 'vue/dist/vue.esm-bundler.js'
+            
         }
     },
     module: {
@@ -37,7 +43,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'App',
-            template: path.resolve(__dirname, '../public/index.html'),
+            template: path.resolve(__dirname, '../index.html'),
             hash: true
         }),
         // 请确保引入这个插件！

@@ -1,4 +1,3 @@
-const path = require('path');
 const baseConf = require('./base.conf');
 console.log(baseConf)
 module.exports = {
@@ -6,6 +5,12 @@ module.exports = {
     ...baseConf,
     devtool: 'inline-source-map',
     devServer: {
-        
+        overlay: true,
+        hot: true,
+        open: true,
+        openPage: [''],
+        proxy: {
+
+        }
     }
 };
