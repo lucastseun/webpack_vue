@@ -1,6 +1,9 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from 'vue'
+import App from './App.vue'
+import httpOk from './common/httpOk'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.mount('#app');
+app.provide('httpOk', httpOk)
+
+app.mount('#app')
