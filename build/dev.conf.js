@@ -5,14 +5,17 @@ module.exports = {
     ...baseConf,
     devtool: 'eval-cheap-source-map',
     devServer: {
+        contentBase: [
+            path.join(__dirname, '../src/mock')
+        ],
         overlay: true,
         hot: true,
         open: true,
         openPage: [''],
         proxy: {
-            '/': {
+            '/api': {
                 target: 'http://localhost:3000',
-                // pathRewrite: { '^/api': '' },
+                pathRewrite: { '^/api': '' },
             }
         }
     }

@@ -7,7 +7,9 @@ const httpOk = async (opts = {}) => {
     if (env.MOCK) {
         const urlArr = url.split('/')
         const urlName = urlArr[urlArr.length - 1] 
-        return await require(`../mock/${urlName}.json`)
+        url = `${urlName}.json`
+        opts.method = 'GET'
+        // return await require(`../mock/${urlName}.json`)
     }
     const defaultInit = {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
