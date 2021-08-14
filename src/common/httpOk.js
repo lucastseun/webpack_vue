@@ -40,14 +40,7 @@ const httpOk = async (opts = {}) => {
     if (!(init.method==='GET' || init.method==='HEAD')) {
         init.body = opts.data;
     }
-    
-    const result = await fetch(url, init).then(res=>{
-        if (res.ok) {
-            return res.json()
-        }
-    })
-
-    return result
+    return await fetch(url, init).then(res => res.ok && res.json())
 }
 
 export default httpOk
