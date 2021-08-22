@@ -7,15 +7,14 @@ const merge = (target = {}, source = {}) => {
     return target
 }
 
-const bodyParms = (body = {}) => {
-    const map = []
+const bodyStringify = (body = {}) => {
+    const sr = new URLSearchParams()
     for (const key in body) {
         if (Object.hasOwnProperty.call(body, key)) {
-            const item = `${key}=${body[key]}`;
-            map.push(item)
+            sr.append(key, body[key])
         }
     }
-    return map.join('&')
+    return sr
 }
 
 const toUpperCase = (str = '') => Object.prototype.toUpperCase.call(str)
@@ -24,7 +23,7 @@ const toLowerCase = (str = '') => String.prototype.toLowerCase.call(str)
 
 export {
     merge,
-    bodyParms,
+    bodyStringify,
     toUpperCase,
     toLowerCase
 }

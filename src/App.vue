@@ -6,16 +6,18 @@
 
 <script setup>
 import { ref, inject } from 'vue'
+import rsaEncrypt from './common/rsa'
 const httpOk = inject('httpOk')
 const msg = ref('hello vue3')
 
+const username = rsaEncrypt("Lily")
+const password = rsaEncrypt("qjh@609")
 httpOk({
-    url: 'GET_USER_INFO',
+    url: 'LOGIN',
     data: {
-        id: 'F1001'
+        username,
+        password
     }
-}).then(res => {
-    console.log(res)
 })
 </script>
 

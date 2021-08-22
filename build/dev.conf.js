@@ -13,9 +13,9 @@ module.exports = {
         open: true,
         openPage: [''],
         proxy: {
-            '/api': {
+            '/': {
                 target: 'http://localhost:3000',
-                pathRewrite: { '^/api': '' },
+                //pathRewrite: { '^/api': '' },
             }
         }
     }

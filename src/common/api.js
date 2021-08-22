@@ -1,5 +1,5 @@
-const prefix = 'http://localhost:8080'
+const prefix = location.origin
 
 export default {
-    GET_USER_INFO: prefix + '/user'
+    LOGIN: prefix + '/user/login'
 }

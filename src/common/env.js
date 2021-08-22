@@ -6,7 +6,7 @@ const env = {
 }
 
 if (env.DEV) {
-    env.MOCK = true // 本地mocK数据，设置为true
+    env.MOCK = false // 本地mocK数据，设置为true
 }
 
 export default env

@@ -1,6 +1,6 @@
 import Api from './api'
 import env from './env'
-import { merge, bodyParms } from './utils'
+import { merge, bodyStringify } from './utils'
 
 const httpOk = async (opts = {}) => {
     let url = Api[opts.url] || ''
@@ -30,7 +30,7 @@ const httpOk = async (opts = {}) => {
     const contentType = init.headers['Content-Type'];
 
     if (contentType.indexOf('application/x-www-form-urlencoded') !== -1 ) {
-        opts.data = bodyParms(opts.data);
+        opts.data = bodyStringify(opts.data);
     }
 
     if (contentType.indexOf('application/json') !== -1) {
